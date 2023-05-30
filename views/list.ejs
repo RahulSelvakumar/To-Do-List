@@ -10,17 +10,21 @@
         <h1><%= listTitle %></h1>
     </div>
     <div class="box">
+
+        <form action="/delete" method="post">
         <% for(let i=0;i<listTask.length;i++){%>
         <div class="item">
-            <input type="checkbox">
-            <p><%= listTask[i] %></p>
+            <input type="checkbox" name="check" value="<%= listTask[i]._id%>" onchange="this.form.submit()">
+            <p><%= listTask[i].name %></p>
         </div>
         <%}%>
+        </form>
 
         <form method="post" class="item" action="/">
             <input type="text" placeholder="Enter your task" name="task" autocomplete="off">
-            <button type="submit" name="list" value="<%= listTitle %>">+</button>
+            <button type="submit" name="list">+</button>
         </form>
+
     </div>
    
     
